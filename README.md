@@ -41,10 +41,12 @@ zplug 'zunit-zsh/zunit', \
 ZUnit and its dependencies can all be installed with zinit.
 
 ```sh
-zinit wait lucid for \
-  as"program" pick"revolver" molovo/revolver \
-  as"program" atclone'./build.zsh' pick"zunit" zunit-zsh/zunit \
-  ;
+zinit for as"program" atclone"ln -sfv revolver.zsh-completion _revolver" \
+  atpull"%atclone" pick"revolver" \
+@molovo/revolver \
+  as"completion" atclone"./build.zsh; ln -sfv zunit.zsh-completion _zunit" \
+  atpull"%atclone" sbin"zunit" \
+@zunit-zsh/zunit
 ```
 
 ### Homebrew
